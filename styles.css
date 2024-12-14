@@ -1,0 +1,24 @@
+:root {
+	--margin: 8px;
+	--length: calc(min(100dvw, 100dvh) - 2 * var(--margin));
+}
+
+* {
+	font-family: 'Lexend', sans-serif;
+}
+
+body {
+	margin: var(--margin);
+}
+
+textarea {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+article {
+	margin-top: var(--margin);
+	width: var(--length);
+	height: var(--length);
+	max-width: 100%;
+}
