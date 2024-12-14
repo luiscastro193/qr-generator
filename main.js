@@ -18,7 +18,7 @@ window.onhashchange = () => location.reload();
 if (location.hash) {
 	const unzip = await import("https://luiscastro193.github.io/zip-string/zip-string.js").then(module => module.unzip);
 	input.value = await unzip(location.hash.slice(1));
-	history.replaceState(null, '', ' ');
+	history.pushState(null, '', ' ');
 }
 
 input.oninput();
