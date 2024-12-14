@@ -9,8 +9,9 @@ function qr(content) {
 }
 
 input.oninput = () => {
+	qrElement.innerHTML = '';
 	let content = input.value.trim();
-	qrElement.innerHTML = content ? qr(content) : '';
+	if (content) qrElement.innerHTML = qr(content);
 }
 
 window.onhashchange = () => location.reload();
