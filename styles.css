@@ -26,8 +26,8 @@ textarea {
 }
 
 article {
-	width: min(100dvw, 100dvh);
-	height: min(100dvw, 100dvh);
+	width: 100dvmin;
+	height: 100dvmin;
 	scroll-snap-align: center;
 	margin: 0 calc(-1 * var(--margin));
 	max-width: calc(100% + 2 * var(--margin));
