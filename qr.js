@@ -1,6 +1,6 @@
-var t,e,r;function i(t){let e=[];for(let r=0;r<t.size;r++)for(let i=0;i<t.size;i++)t.getModule(i,r)&&e.push(`M${i},${r}h1v1h-1z`);return`<?xml version="1.0" encoding="UTF-8"?>
+var t,e,r;function i(t){let e=[];for(let r=0;r<t.size;r++)for(let i=0;i<t.size;i++)t.getModule(i,r)&&e.push(`M${i+4},${r+4}h1v1h-1z`);return`<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 ${t.size} ${t.size}" stroke="none">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 ${t.size+8} ${t.size+8}" stroke="none">
 <rect width="100%" height="100%" fill="white"/>
 <path d="${e.join(" ")}"/>
 </svg>

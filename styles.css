@@ -1,14 +1,23 @@
 :root {
 	--margin: 8px;
-	--length: calc(min(100dvw, 100dvh) - 2 * var(--margin));
 }
 
 * {
 	font-family: 'Lexend', sans-serif;
 }
 
+html {
+	scroll-snap-type: both mandatory;
+}
+
 body {
 	margin: var(--margin);
+}
+
+h3 {
+	scroll-snap-align: start;
+	margin: 0;
+	padding: 1em 0;
 }
 
 textarea {
@@ -17,8 +26,9 @@ textarea {
 }
 
 article {
-	margin-top: var(--margin);
-	width: var(--length);
-	height: var(--length);
-	max-width: 100%;
+	width: min(100dvw, 100dvh);
+	height: min(100dvw, 100dvh);
+	scroll-snap-align: center;
+	margin: 0 calc(-1 * var(--margin));
+	max-width: calc(100% + 2 * var(--margin));
 }
