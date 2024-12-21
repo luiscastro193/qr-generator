@@ -4,8 +4,9 @@ import {qrcodegen, toSvgString} from './qr.js';
 const input = document.querySelector('textarea');
 const qrElement = document.querySelector('article');
 
-function qr(content) {
-	return toSvgString(qrcodegen.QrCode.encodeText(content, qrcodegen.QrCode.Ecc.LOW));
+function qr(content, errorCorrection) {
+	let ecc = errorCorrection ? qrcodegen.QrCode.Ecc.QUARTILE : qrcodegen.QrCode.Ecc.LOW;
+	return toSvgString(qrcodegen.QrCode.encodeText(content, ecc));
 }
 
 input.oninput = () => {
@@ -22,3 +23,31 @@ if (location.hash) {
 }
 
 input.oninput();
+
+function download(blob, filename) {
+	let link = document.createElement("a");
+	let url = URL.createObjectURL(blob);
+	link.href = url;
+	link.download = filename;
+	document.body.append(link);
+	link.click();
+	URL.revokeObjectURL(url);
+	link.remove();
+}
+
+document.querySelector('#download').onclick = () => {
+	let content = input.value.trim();
+	if (input.reportValidity() && content)
+		download(new Blob([qr(content, true)]), "QR.svg");
+};
+
+document.querySelector('#share').onclick = () => {
+	let url = location.href;
+	let content = input.value.trim();
+	if (content) url = new URL('#' + encodeURIComponent(content), url);
+	
+	if (navigator.share)
+		navigator.share({url});
+	else
+		navigator.clipboard.writeText(url).then(() => alert("Link copied to clipboard"));
+};

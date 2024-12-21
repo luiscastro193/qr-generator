@@ -32,3 +32,9 @@ article {
 	margin: 0 calc(-1 * var(--margin));
 	max-width: calc(100% + 2 * var(--margin));
 }
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+}
