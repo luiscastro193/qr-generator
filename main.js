@@ -5,7 +5,7 @@ const input = document.querySelector('textarea');
 const qrElement = document.querySelector('article');
 
 function qr(content, errorCorrection) {
-	let ecc = errorCorrection ? qrcodegen.QrCode.Ecc.QUARTILE : qrcodegen.QrCode.Ecc.LOW;
+	let ecc = errorCorrection ? qrcodegen.QrCode.Ecc.MEDIUM : qrcodegen.QrCode.Ecc.LOW;
 	return toSvgString(qrcodegen.QrCode.encodeText(content, ecc));
 }
 

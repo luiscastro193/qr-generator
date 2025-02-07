@@ -3,7 +3,7 @@ import {qrcodegen, toSvgString} from './qr.js';
 import {writeFile} from 'fs/promises';
 
 function qr(content) {
-	return toSvgString(qrcodegen.QrCode.encodeText(content, qrcodegen.QrCode.Ecc.QUARTILE));
+	return toSvgString(qrcodegen.QrCode.encodeText(content, qrcodegen.QrCode.Ecc.MEDIUM));
 }
 
 if (process.argv.length < 3)
