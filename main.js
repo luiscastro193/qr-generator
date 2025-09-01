@@ -13,6 +13,7 @@ input.oninput = () => {
 	qrElement.innerHTML = '';
 	let content = input.value.trim();
 	if (content) qrElement.innerHTML = qr(content);
+	localStorage.qr = input.value;
 }
 
 window.onhashchange = () => location.reload();
@@ -21,6 +22,8 @@ if (location.hash) {
 	input.value = decodeURIComponent(location.hash.slice(1));
 	history.pushState(null, '', ' ');
 }
+else if (localStorage.qr)
+	input.value = localStorage.qr;
 
 input.oninput();
 
